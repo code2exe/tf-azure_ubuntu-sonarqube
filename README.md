@@ -24,6 +24,8 @@ MacOS
 brew update && brew install azure-cli
 ```
 
+
+
 - **Authenticate to your Azure account**: 
 
 (You should get your subscription ID after running it. You will need to save it for the next step)
@@ -31,6 +33,8 @@ brew update && brew install azure-cli
 ```
 az login
 ```
+
+
 
 - **Create an Azure Service Principal** (`<subscription_id>` should be substituted for the ID you got previously)
 
@@ -40,17 +44,23 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 
 You will get some values you will need to save somewhere
 
+
+
 - **Log in with the Service Principal**(The `name`, `password`, and `tenant` values from the previous step will be used here.)
 
 ```bash
 az login --service-principal -u <service_principal_name> -p "<service_principal_password>" --tenant "<service_principal_tenant>"
 ```
 
-- **Set your Azure subscription** (useful if you have multiple accounts)
+
+
+- Set your Azure subscription** (useful if you have multiple accounts)
 
 ```bash
 az account set --subscription="<subscription_id>"
 ```
+
+
 
 - **Create a storage account for the Terraform State storage** (Substitute the `$` variables with names of your choosing)
 
@@ -72,7 +82,10 @@ az storage account keys list --resource-group $RESOURCE_GROUP_NAME --account-nam
 az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME --account-key $ACCOUNT_KEY
 ```
 
+
+
 - **Rename the** `terraform.tfvars.example` **to** `terraform.tfvars` **and edit** `backend.tf` **to contain the required values**
+
 
 - **Running the Script**
 
@@ -91,6 +104,8 @@ terraform apply -auto-approve
 Wait for a few minutes and then you can visit the IP Address displayed from Terraform apply on a web browser
 
 <img src="https://github.com/code2exe/tf-azure_ubuntu-sonarqube/blob/develop/sonarqube.png" width="100%">
+
+
 
 - **Destroy the infrastructure**
 
