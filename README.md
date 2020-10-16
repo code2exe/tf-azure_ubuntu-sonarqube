@@ -54,7 +54,7 @@ az login --service-principal -u <service_principal_name> -p "<service_principal_
 
 
 
-- Set your Azure subscription** (useful if you have multiple accounts)
+- **Set your Azure subscription** (useful if you have multiple accounts)
 
 ```bash
 az account set --subscription="<subscription_id>"
