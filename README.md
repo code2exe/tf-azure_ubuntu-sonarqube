@@ -72,31 +72,7 @@ az storage account keys list --resource-group $RESOURCE_GROUP_NAME --account-nam
 az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME --account-key $ACCOUNT_KEY
 ```
 
-- Rename the `terraform.tfvars.example` to `terraform.tfvars` and edit `backend.tf`
-
-`backend.tf`
-
-   	resource_group_name   = "????"
-
-​    	storage_account_name  = "???"
-
-​    	container_name        = "???"
-
-​    	key = "terraform.tfstate"
-
-`terraform.tfvars`
-
-​	subscription_id = "......"
-
-  	client_id       = "......."
-
-  	client_secret   = "......"
-
- 	tenant_id       = "......"
-
-  	location        = "......."
-
-  	admin_username      = "ubuntu"
+- **Rename the** `terraform.tfvars.example` **to** `terraform.tfvars` **and edit** `backend.tf` **to contain the required values**
 
 - **Running the Script**
 
@@ -114,7 +90,7 @@ terraform apply -auto-approve
 
 Wait for a few minutes and then you can visit the IP Address displayed from Terraform apply on a web browser
 
-![Homepage](E:\Azure\Fiverr Terraform\delivery\sonarqube.png)
+<img src="https://github.com/code2exe/tf-azure_ubuntu-sonarqube/blob/develop/sonarqube.png" width="100%">
 
 - **Destroy the infrastructure**
 
